@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Special Elite";
+  src: url("/fonts/SpecialElite-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-VariableFont_wght.ttf");
+}
+
+:root {
+  --header: "Special Elite", "sans-serif";
+  --default: "Raleway", "sans-serif";
+  --black: "#000";
+  --red: #ff0015;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header);
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+a {
+  color: var();
+}
+
+p,
+a,
+li {
+  font-family: var(--default);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
