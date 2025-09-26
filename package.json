@@ -1,0 +1,8 @@
+{
+  "name": "Warm Kids Wisconsin",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  }
+}
