@@ -28,10 +28,10 @@ export function buildHeader() {
         brandingLogoAnchor.href = "/";
         header?.appendChild(brandingLogoAnchor);
         const brandingLogo = document.createElement("img");
-        brandingLogo.src = "assets/logo.png";
+        brandingLogo.src = "assets/logo.avif";
         brandingLogo.alt = "Warm Kids Wisconsin logo";
-        brandingLogo.width = 60;
-        brandingLogo.height = 60;
+        brandingLogo.setAttribute("width", "60");
+        brandingLogo.setAttribute("height", "60");
         brandingLogoAnchor.appendChild(brandingLogo);
         // Hamburger button
         const hamburgerButton = document.createElement("button");
