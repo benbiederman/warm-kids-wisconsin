@@ -19,6 +19,7 @@
   --default: "Raleway", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   --black: #000;
   --red: #ff0015;
+  --dark-red: #b3000f;
   --white: #fff;
 }
 
@@ -55,14 +56,18 @@ button {
 
 .primary-button {
   border: none;
-  background-color: var(--black);
-  color: var(--white);
-  padding: 1rem 0.5rem;
+  padding: 1.25rem 2rem 0.75rem;
   font-family: var(--header);
   font-size: 1.5rem;
+  border-radius: 0.25rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--black);
 }
 
-.primary-button:hover {
+.primary-button:hover,
+.primary-button:focus {
   color: var(--red);
 }
 
@@ -101,11 +106,22 @@ header {
   margin: 0 0.5rem;
 }
 
+#no-script a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+#no-script a:hover,
+#no-script a:focus {
+  color: var(--red);
+  text-decoration: underline;
+}
+
 #no-script-banner {
   position: absolute;
   top: 4.7rem;
   left: 0;
-  background-color: #000;
+  background-color: var(--black);
   width: 100%;
   color: var(--white);
   text-align: center;
@@ -174,7 +190,7 @@ header {
   left: -100%;
   top: 5rem;
   background-color: var(--black);
-  z-index: 100;
+  z-index: 1000;
   width: 100%;
   min-height: 600px;
   transition: left 0.25s ease-in-out;
@@ -277,9 +293,55 @@ footer p {
   color: var(--white);
 }
 
+footer a {
+  text-decoration: none;
+}
+
 .footer-links a:hover,
 .footer-links a:focus {
   color: var(--red);
+  text-decoration: underline;
+}
+
+/* Index */
+.hero {
+  width: 100%;
+}
+.homepage-hero {
+  background-image: url("/assets/homepage-hero-mobile.jpg");
+  height: 50rem;
+  min-height: calc(80vh - 5rem);
+  background-position: center;
+  background-size: cover;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.homepage-hero .copy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage-hero .primary-button {
+  box-shadow: 0px 0px 10px #2c2c2c;
+  transition: box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.homepage-hero .primary-button:hover,
+.homepage-hero .primary-button:focus {
+  box-shadow: 0px 0px 3px #000;
+  color: var(--red);
+}
+
+.homepage-hero .copy-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.homepage-hero .copy-container p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -287,9 +349,24 @@ footer p {
   .navigation {
     min-height: 400px;
   }
+
+  /* Index */
+  .homepage-hero {
+    background-image: url("/assets/homepage-hero-tablet.jpg");
+    height: 30rem;
+    min-height: calc(50vh - 5rem);
+    background-position: right;
+    padding: 0rem 1rem;
+  }
+
+  .homepage-hero .copy-container {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   /* Header */
   header {
     padding: 0 2.5rem;
@@ -326,5 +403,47 @@ footer p {
 
   .overlay-active {
     display: none;
+  }
+
+  /* Index */
+  .homepage-hero {
+    background-image: url("/assets/homepage-hero.jpg");
+    height: calc(95vh - 5rem);
+    min-height: 40rem;
+    background-position: center;
+    padding: 0rem 1rem;
+    display: flex;
+  }
+
+  .homepage-hero .copy-container {
+    margin-left: 20%;
+    width: 27.5%;
+    text-align: right;
+    align-items: flex-end;
+    margin-top: 1rem;
+  }
+
+  .homepage-hero .copy-container h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) and (orientation: landscape) {
+  /* Index */
+  .homepage-hero {
+    background-image: url("/assets/homepage-hero.jpg");
+    height: calc(95vh - 5rem);
+    min-height: 40rem;
+    background-position: center;
+    padding: 0rem 1rem;
+    display: flex;
+  }
+
+  .homepage-hero .copy-container {
+    margin-left: 22.5%;
+    width: 25%;
+    text-align: right;
+    align-items: flex-end;
+    margin-top: 1rem;
   }
 }

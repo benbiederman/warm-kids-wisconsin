@@ -69,6 +69,7 @@ export function buildHeader() {
       const anchor = document.createElement("a");
       anchor.href = link.url;
       anchor.textContent = link.label;
+      anchor.tabIndex = window.innerWidth > 1023 ? 0 : -1;
       listItem.appendChild(anchor);
       navList.append(listItem);
     });
