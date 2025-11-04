@@ -21,6 +21,7 @@
   --red: #ff0015;
   --dark-red: #b3000f;
   --white: #fff;
+  --screen-padding: 1rem;
 }
 
 h1,
@@ -79,8 +80,9 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem var(--screen-padding);
   min-height: 5rem;
+  z-index: 1000;
   position: sticky;
   left: 0;
   top: 0;
@@ -131,7 +133,7 @@ header {
 
 .skip-to-content-link {
   position: absolute;
-  z-index: 200;
+  z-index: 2000;
   top: -100%;
   left: 0;
   width: 100%;
@@ -210,7 +212,7 @@ header {
 
 .navigation li a {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: var(--screen-padding);
   text-decoration: none;
   color: var(--white);
   font-family: var(--header);
@@ -344,8 +346,56 @@ footer a {
   margin-bottom: 2rem;
 }
 
+.product-section {
+  padding: 2rem var(--screen-padding);
+  text-align: center;
+  z-index: 50;
+}
+
+.product-items {
+  padding: 1rem var(--screen-padding);
+  margin: 0 auto;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 23rem;
+}
+
+.product-card {
+  background-color: #f7f7f7;
+  padding: 1rem 1rem 0rem;
+  width: 85%;
+  position: absolute;
+  top: 1rem;
+  height: 20rem;
+  z-index: 50;
+  transition: left 0.25s ease;
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.product-card a:hover,
+.product-card a:focus {
+  text-decoration: underline;
+  color: var(--red);
+}
+
 @media screen and (min-width: 768px) {
+  :root {
+    --screen-padding: 1.25rem;
+  }
+
   /* Header */
+  header {
+    padding: 0 var(--screen-padding);
+  }
+
   .navigation {
     min-height: 400px;
   }
@@ -364,14 +414,40 @@ footer a {
     justify-content: center;
     align-items: center;
   }
+
+  .product-section h2 {
+    padding: 1rem;
+  }
+
+  .product-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .product-card {
+    width: calc(47.5% - 2rem);
+    height: 20rem;
+    position: static;
+  }
+
+  .product-card img {
+    transition: transform 0.25s ease;
+  }
+
+  .product-card:hover img {
+    transform: scale(1.1);
+  }
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
-  /* Header */
-  header {
-    padding: 0 2.5rem;
+  :root {
+    --screen-padding: 2.5rem;
   }
 
+  /* Header */
   .hamburger-button {
     display: none;
   }
@@ -425,6 +501,18 @@ footer a {
 
   .homepage-hero .copy-container h1 {
     font-size: 3.5rem;
+  }
+
+  .product-section h2 {
+    padding: 0rem;
+  }
+
+  .product-items {
+    gap: 1rem;
+  }
+
+  .product-card {
+    width: calc(25% - 1rem);
   }
 }
 
